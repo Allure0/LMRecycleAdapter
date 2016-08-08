@@ -1,4 +1,4 @@
-#LMRecycleViewAdapter（[Enlish README](https://github.com/Allure0/LMRecycleAdapter/blob/master/README.md)）
+#LMRecycleViewAdapter（[English README](https://github.com/Allure0/LMRecycleAdapter/blob/master/README.md)）
 -------------
 简易的,多功能的,支持多个特性的的RecycleViewAdapter.特性如下。
 
