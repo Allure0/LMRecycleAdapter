@@ -170,8 +170,8 @@ Otherwise the data will show that it is not normal。
 ###TODO
 
 If there is BUG or question,please submit Issues。
-Or OICO group:[482906631]()
-Or gail:[qq395118726@gmail.com]()
+or QICQ group:[482906631]()
+or gail:[qq395118726@gmail.com]()
 
 ###Thanks
 [base-adapter-helper](https://github.com/JoanZapata/base-adapter-helper)
