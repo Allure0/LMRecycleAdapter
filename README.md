@@ -19,7 +19,7 @@ It's a simple, versatile, support for multiple characteristics of RecycleAdapter
 Gradle:  
 ```
 dependencies {
-  compile 'com.allure0:LMRecycleViewAdapter:1.0.0'
+  compile 'com.allure0:LMRecycleViewAdapter:1.0.1'
 }
 ```
 ###Normal Adapter Use：
