@@ -19,7 +19,7 @@
 Gradle:  
 ```
 dependencies {
- compile 'com.allure0:LMRecycleViewAdapter:1.0.0'
+ compile 'com.allure0:LMRecycleViewAdapter:1.0.1'
 }
 ```
 ###普通Adapter示例显示：
