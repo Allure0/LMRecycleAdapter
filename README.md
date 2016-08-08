@@ -24,7 +24,7 @@ dependencies {
 ###Normal Adapter Use：
 
 ```
-dependencies {
+
  public class TestAdapter extends BaseCleanRecycleAdapter<TestBean> {
 
 
@@ -48,18 +48,18 @@ dependencies {
         //OnTouch
         helper.setOnTouchListener();*/
     }
-}
+
 ```
 ###Item Onlcik、OnLongClick
 ```
-dependencies {
+
    mTestAdapter.setOnItemClickListener（）;
    mTestAdapter.setOnItemLongClickListener（）;
-}
+
 ```
 ###Item Child Onlcik、OnLongClick
 ```
-dependencies {
+
     //Onclick
         helper.setOnClickListener(R.id.name, new View.OnClickListener() {
             @Override
@@ -71,7 +71,7 @@ dependencies {
         helper.setOnLongClickListener();
         //OnTouch
         helper.setOnTouchListener();*/
-}
+
 ```
 
 ###LoadMore
@@ -114,7 +114,7 @@ dependencies {
 ![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/normal.png)
 
 ```
-dependencies {
+
         mHeaderAndFooterWrapper.addHeaderView(mHeaderLayout);
         mHeaderAndFooterWrapper.addFooterView(mFooterLayout);
 //      mHeaderAndFooterWrapper.removeHeaderView(mHeaderLayout);
