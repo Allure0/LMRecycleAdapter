@@ -79,7 +79,7 @@ dependencies {
 ```
 
 ###LoadMore
-![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/loadmore.png)
+![](https://github.com/Allure0/LMRecycleAdapter/tree/master/demo/loadmore.png)
 ```
 
   LMRecycleView  mRecyclerView = (LMRecycleView) findViewById(R.id.recycle_view);
@@ -129,7 +129,7 @@ dependencies {
 ```
 ### More ItemType
 
-![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/muti.png)
+![](https://github.com/Allure0/LMRecycleAdapter/tree/master/demo/muti.png)
 
 ```
 <------------Activity Or Fragment------------------>
