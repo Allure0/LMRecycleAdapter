@@ -8,11 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.allure.lmrecycleadapter.interfaces.OnItemClickListener;
 import com.allure.lmrecycleadapter.headerfooterwrapper.HeaderAndFooterWrapper;
 import com.allure.lmrecycleadapter.interfaces.OnItemLongClickListener;
+import com.allure.lmrecycleadapter.loadmore.LMRecycleView;
 import com.allure.sample.adapter.TestAdapter;
 import com.allure.sample.bean.TestBean;
 import com.allure.sample.header_footer_view.FooterLayout;
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private RecyclerView mRecyclerView;
+    private LMRecycleView mRecyclerView;
     private TestAdapter mTestAdapter;
 
     private List<TestBean> list = new ArrayList<>();
@@ -39,15 +42,13 @@ public class MainActivity extends AppCompatActivity {
     private HeaderLayout mHeaderLayout;
     private FooterLayout mFooterLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         list= initData();
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycle_view);
+        mRecyclerView = (LMRecycleView) findViewById(R.id.recycle_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 //        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         mTestAdapter.setOnItemClickListener(new OnItemClickListener<TestBean>() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position, TestBean data) {
-                addList();
+
                 Toast.makeText(MainActivity.this, String.valueOf(position)+
                         "---"+data.getName(), 1).show();
 

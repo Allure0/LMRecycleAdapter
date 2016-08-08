@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     tools:context="com.allure.sample.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <com.allure.lmrecycleadapter.loadmore.LMRecycleView
         android:id="@+id/recycle_view"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        />
+        android:layout_height="fill_parent" />
+
 </RelativeLayout>

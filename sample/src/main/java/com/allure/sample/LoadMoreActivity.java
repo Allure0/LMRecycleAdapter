@@ -7,17 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.allure.lmrecycleadapter.headerfooterwrapper.HeaderAndFooterWrapper;
 import com.allure.lmrecycleadapter.interfaces.OnItemClickListener;
 import com.allure.lmrecycleadapter.loadmore.DeaultLoadMoreFooter;
 import com.allure.lmrecycleadapter.loadmore.LMRecycleView;
-import com.allure.lmrecycleadapter.headerfooterwrapper.HeaderAndFooterWrapper;
-import com.allure.lmrecycleadapter.loadmore.LoadMoreFooterLayout;
 import com.allure.sample.adapter.TestAdapter;
 import com.allure.sample.bean.TestBean;
-import com.allure.sample.header_footer_view.FooterLayout;
 import com.allure.sample.header_footer_view.HeaderLayout;
+import com.allure.sample.header_footer_view.HeaderLayout2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,8 @@ public class LoadMoreActivity extends AppCompatActivity {
 
     private HeaderAndFooterWrapper mHeaderAndFooterWrapper;
     private HeaderLayout mHeaderLayout;
-    private HeaderLayout mHeaderLayout2;
+    private HeaderLayout2 mHeaderLayout2;
+    private RelativeLayout emptyView;
 
 
 
@@ -47,6 +48,7 @@ public class LoadMoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loadmore_layout);
         list.addAll( initData());
+        emptyView= (RelativeLayout) findViewById(R.id.empty);
 
         mSwipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         mRecyclerView = (LMRecycleView) findViewById(R.id.recycle_view);
@@ -58,9 +60,6 @@ public class LoadMoreActivity extends AppCompatActivity {
 
         mTestAdapter = new TestAdapter(this, R.layout.test_recycle_item, list);
         mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(mTestAdapter);
-
-        mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
-
         //you need setAdapter first
         initHeaderAndFooter();
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -81,6 +80,8 @@ public class LoadMoreActivity extends AppCompatActivity {
 
         });
         initLoadMore();
+        mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
+        mRecyclerView.setEmptyView(emptyView);
         setListener();
     }
 
@@ -121,6 +122,11 @@ public class LoadMoreActivity extends AppCompatActivity {
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position, TestBean data) {
                 //if you want remove header Or Footer
 //                mHeaderAndFooterWrapper.removeHeaderView(mHeaderLayout);
+//                mHeaderAndFooterWrapper.removeHeaderView(mHeaderLayout);
+                mHeaderAndFooterWrapper.removeHeaderView(mHeaderLayout2);
+                mHeaderAndFooterWrapper.removeHeaderView(mHeaderLayout);
+                mTestAdapter.clear();
+                mHeaderAndFooterWrapper.notifyDataSetChanged();
                 Toast.makeText(LoadMoreActivity.this, String.valueOf(data.getName()), 1).show();
             }
 
@@ -133,7 +139,7 @@ public class LoadMoreActivity extends AppCompatActivity {
     //add header and footer
     private void initHeaderAndFooter() {
         mHeaderLayout = new HeaderLayout(this);
-        mHeaderLayout2 = new HeaderLayout(this);
+        mHeaderLayout2 = new HeaderLayout2(this);
         mHeaderAndFooterWrapper.addHeaderView(mHeaderLayout);
         mHeaderAndFooterWrapper.addHeaderView(mHeaderLayout2);
     }
