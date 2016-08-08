@@ -79,6 +79,9 @@ dependencies {
 ![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/loadmore.png)
 
 ```
+       
+  LMRecycleView  mRecyclerView = (LMRecycleView) findViewById(R.id.recycle_view);
+
  private void initLoadMore() {
         //you can use  custom loadmore view,DefaultLoadMore just a default view
         mRecyclerView.setFooterView(new DeaultLoadMoreFooter(this));
