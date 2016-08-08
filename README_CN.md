@@ -1,4 +1,4 @@
-#LMRecycleViewAdapter（[Enlish README](https://github.com/Allure0/LMRecycleAdapter/blob/master/README.md)）
+#LMRecycleViewAdapter（[English README](https://github.com/Allure0/LMRecycleAdapter/blob/master/README.md)）
 -------------
 简易的,多功能的,支持多个特性的的RecycleViewAdapter.特性如下。
 
@@ -79,7 +79,7 @@ dependencies {
 
 ###LoadMore加载
 
-![](demo/loadmore.png)
+![](demo/loadmore.gif)
 
 ```
        
@@ -118,7 +118,7 @@ dependencies {
 ```
 ###多Header Footer添加与移除(可添加多个)
 
-![](normal.png)
+![](normal.gif)
 
 ```
 
@@ -129,7 +129,7 @@ dependencies {
 ```
 ###多ItemType布局
 
-![](demo/muti.png)
+![](demo/muti.gif)
 
 ```
 <------------Activity Or Fragment------------------>

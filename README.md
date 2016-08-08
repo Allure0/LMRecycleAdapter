@@ -79,7 +79,7 @@ dependencies {
 ```
 
 ###LoadMore
-![](demo/loadmore.png)
+![](demo/loadmore.gif)
 ```
 
   LMRecycleView  mRecyclerView = (LMRecycleView) findViewById(R.id.recycle_view);
@@ -118,7 +118,7 @@ dependencies {
 
 ###Add Header Or Footer
 
-![](demo/normal.png)
+![](demo/normal.gif)
 
 ```
 
@@ -129,7 +129,7 @@ dependencies {
 ```
 ### More ItemType
 
-![](demo/muti.png)
+![](demo/muti.gif)
 
 ```
 <------------Activity Or Fragment------------------>
