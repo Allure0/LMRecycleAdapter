@@ -184,7 +184,7 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
      * @param position
      */
     public void removeFooterView(int position) {
-        mFootViews.delete(position + BASE_ITEM_TYPE_HEADER);
+        mFootViews.delete(position + BASE_ITEM_TYPE_FOOTER);
         notifyDataSetChanged();
     }
 
@@ -196,6 +196,7 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
         removeFooterView(mFootViews.indexOfValue(view) );
 
     }
+
     /**
      * remove loadmore footer
      */

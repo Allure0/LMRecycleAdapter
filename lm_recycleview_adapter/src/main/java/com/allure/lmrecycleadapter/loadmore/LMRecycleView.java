@@ -15,15 +15,16 @@ import com.allure.lmrecycleadapter.headerfooterwrapper.HeaderAndFooterWrapper;
  */
 public class LMRecycleView extends RecyclerView {
 
+    private static final String TAG = "LMRecycleView";
 
     private Context mContext;
     private OnLoadMoreListener onLoadListener;
     private LoadMoreFooterLayout footerView;
-    private boolean canLoadMore = true;
+    private boolean canLoadMore = false;
     private int mCountNumber = 0;
     private int realCountNumber = 0;
-    private  LoadMoreFooterLayout.State state;
-
+    private LoadMoreFooterLayout.State state;
+    private View emptyView;
 
     public LMRecycleView(Context context) {
         super(context);
@@ -44,8 +45,63 @@ public class LMRecycleView extends RecyclerView {
     }
 
     private void init(Context context) {
-
         addOnScrollListener(allureRecyclerOnScrollListener);
+    }
+
+    final private AdapterDataObserver observer = new AdapterDataObserver() {
+        @Override
+        public void onChanged() {
+            isEmptyView();
+        }
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount) {
+            super.onItemRangeChanged(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
+            super.onItemRangeChanged(positionStart, itemCount, payload);
+        }
+
+        @Override
+        public void onItemRangeInserted(int positionStart, int itemCount) {
+            isEmptyView();
+
+        }
+
+        @Override
+        public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+            super.onItemRangeMoved(fromPosition, toPosition, itemCount);
+        }
+
+        @Override
+        public void onItemRangeRemoved(int positionStart, int itemCount) {
+            isEmptyView();
+        }
+    };
+
+    private void isEmptyView() {
+        if (emptyView != null && getAdapter() != null) {
+            final boolean emptyViewVisible =
+                    getAdapter().getItemCount() == 0;
+            emptyView.setVisibility(emptyViewVisible ? VISIBLE : GONE);
+            setVisibility(emptyViewVisible ? GONE : VISIBLE);
+        }
+    }
+
+    @Override
+    public void setAdapter(Adapter adapter) {
+        final Adapter oldAdapter = getAdapter();
+        if (oldAdapter != null) {
+            oldAdapter.unregisterAdapterDataObserver(observer);
+        }
+        super.setAdapter(adapter);
+        if (adapter != null) {
+            adapter.registerAdapterDataObserver(observer);
+        }
+
+        isEmptyView();
     }
 
 
@@ -56,11 +112,14 @@ public class LMRecycleView extends RecyclerView {
             super.onLoadMore(view);
             Adapter adapter = getAdapter();
             if (getAdapter() instanceof HeaderAndFooterWrapper) {
-                 state = footerView.getState();
-                if (state == LoadMoreFooterLayout.State.Loading) {
-                    Log.d("@BOOM", " isLoading");
-                    return;
+                if (footerView != null) {
+                    state = footerView.getState();
+                    if (state == LoadMoreFooterLayout.State.Loading) {
+                        Log.d("@BOOM", " isLoading");
+                        return;
+                    }
                 }
+
                 Log.d("all count contain  ", getAdapter().getItemCount() + "");
                 Log.d("header count  ", ((HeaderAndFooterWrapper) adapter).getHeadersCount() + "");
                 Log.d("footer count  ", ((HeaderAndFooterWrapper) adapter).getFootersCount() + "");
@@ -96,7 +155,8 @@ public class LMRecycleView extends RecyclerView {
 
 
     /**
-     *  The LoadMore Layout
+     * The LoadMore Layout
+     *
      * @param view
      */
     public void setFooterView(View view) {
@@ -129,7 +189,6 @@ public class LMRecycleView extends RecyclerView {
 
     /**
      * If you get datas, change state Normal,user method
-     *
      */
     public void loadMoreCommplete() {
         if (footerView.getState() == LoadMoreFooterLayout.State.Loading) {
@@ -142,7 +201,6 @@ public class LMRecycleView extends RecyclerView {
 
     /**
      * If you get all the data, change state End
-     *
      */
     public void changeLoadMoreEndSate() {
 
@@ -155,9 +213,10 @@ public class LMRecycleView extends RecyclerView {
 
     /**
      * get Footer's State
+     *
      * @return
      */
-    public LoadMoreFooterLayout.State getFooterState(){
+    public LoadMoreFooterLayout.State getFooterState() {
         return footerView.getState();
     }
 
@@ -168,6 +227,16 @@ public class LMRecycleView extends RecyclerView {
      */
     public void setCanLoadMore(boolean canLoadMore) {
         this.canLoadMore = canLoadMore;
+    }
+
+
+    /**
+     * set the EmptyView
+     * @param emptyView
+     */
+    public void setEmptyView(View emptyView) {
+        this.emptyView = emptyView;
+        isEmptyView();
     }
 
 
