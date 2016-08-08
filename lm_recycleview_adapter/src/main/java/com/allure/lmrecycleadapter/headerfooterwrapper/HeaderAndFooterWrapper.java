@@ -160,7 +160,7 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
 
 
     /**
-     * 根据position移除
+     * remove header instance of position
      *
      * @param position
      */
@@ -171,25 +171,33 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     /**
-     * 根据View移除
+     * remove header instance of view
      * @param view
      */
     public void removeHeaderView(View view) {
         removeHeaderView(mHeaderViews.indexOfValue(view) );
     }
 
-
+    /**
+     * remove footer instance of position
+     *
+     * @param position
+     */
     public void removeFooterView(int position) {
         mFootViews.delete(position + BASE_ITEM_TYPE_HEADER);
         notifyDataSetChanged();
     }
 
+    /**
+     * remove footer instance of view
+     * @param view
+     */
     public void removeFooterView(View view) {
         removeFooterView(mFootViews.indexOfValue(view) );
 
     }
     /**
-     * 移除加载更多footer
+     * remove loadmore footer
      */
     public void removeLoadFooterView() {
 
