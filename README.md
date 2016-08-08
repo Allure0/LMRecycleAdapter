@@ -1,4 +1,4 @@
-#LMRecycleViewAdapter（[中文文档]()）
+#LMRecycleViewAdapter（[中文文档](https://github.com/Allure0/LMRecycleAdapter/blob/master/README_CN.md)）
 -------------
 It's a simple, versatile, support for multiple characteristics of RecycleAdapter.
 
