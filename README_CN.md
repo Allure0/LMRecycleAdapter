@@ -24,7 +24,10 @@ dependencies {
 ###普通Adapter示例显示：
 
 ```
-
+       mTestAdapter = new TestAdapter(this, R.layout.test_recycle_item, list);
+        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(mTestAdapter);
+        mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
+  
  public class TestAdapter extends BaseCleanRecycleAdapter<TestBean> {
 
 
