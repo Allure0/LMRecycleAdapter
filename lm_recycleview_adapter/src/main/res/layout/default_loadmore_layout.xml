@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loading_view"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ViewStub
+        android:id="@+id/loading_viewstub"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout="@layout/default_loadmore_loading" />
+
+    <ViewStub
+        android:id="@+id/end_viewstub"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout="@layout/default_loadmore_end" />
+
+
+</LinearLayout>
