@@ -79,7 +79,7 @@ dependencies {
 
 ###LoadMore加载
 
-![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/loadmore.png)
+![](https://github.com/Allure0/LMRecycleAdapter/tree/master/demo/loadmore.png)
 
 ```
        
@@ -118,7 +118,7 @@ dependencies {
 ```
 ###多Header Footer添加与移除(可添加多个)
 
-![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/normal.png)
+![](https://github.com/Allure0/LMRecycleAdapter/tree/master/demo/normal.png)
 
 ```
 
@@ -129,7 +129,7 @@ dependencies {
 ```
 ###多ItemType布局
 
-![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/muti.png)
+![](https://github.com/Allure0/LMRecycleAdapter/tree/master/demo/muti.png)
 
 ```
 <------------Activity Or Fragment------------------>
