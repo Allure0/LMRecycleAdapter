@@ -10,6 +10,7 @@ It's a simple, versatile, support for multiple characteristics of RecycleAdapter
 - Support add more header or footer,also u can remove it.
 - Support loadmore.if u like u can set custom loadmore view.(Uhh,If U need use Refresh and Loadmore,I suggest use [android.support.v4.widget.SwipeRefreshLayout]() Or [android-Ultra-Pull-To-Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)）)
 - Support more ItemType 
+- Support EmtypView
 
 ###[APK Download](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/sample-debug.apk)
 ![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/adapter_gif.gif)
@@ -76,6 +77,42 @@ dependencies {
         //OnTouch
         helper.setOnTouchListener();*/
 
+```
+
+###EmptyView
+```
+
+ --------XML START--------
+  <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    <com.allure.lmrecycleadapter.loadmore.LMRecycleView
+        android:id="@+id/recycle_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+    <RelativeLayout
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="空View" />
+    </RelativeLayout>
+    </RelativeLayout>
+ --------XML END--------
+ 
+ 
+ --------JAVA CODE ------
+ mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
+ mRecyclerView.setEmptyView(emptyView);
+ --------JAVA CODE ------
+ 
 ```
 
 ###LoadMore
