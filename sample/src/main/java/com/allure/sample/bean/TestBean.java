@@ -7,15 +7,6 @@ import java.io.Serializable;
  */
 public class TestBean implements Serializable{
     private String name;
-    private String desc;
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
 
     public String getName() {
         return name;

@@ -97,7 +97,7 @@ public class MultiItemActivity extends AppCompatActivity {
         for (int i = 0; i < 5; i++) {
             MutiBean news = new MutiBean();
             if(i%2==0){
-                news.setContent("ITEM_TYPE_CONTENT");
+                news.setContent("只是内容");
                 news.setItemType(MutiBean.ITEM_TYPE_CONTENT);
             }else{
                 news.setResoucre(R.drawable.lbb);

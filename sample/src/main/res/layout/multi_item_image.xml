@@ -3,18 +3,21 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="100dp">
 
-    <ImageView
-        android:layout_centerInParent="true"
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
         android:id="@+id/image"
         android:scaleType="centerCrop"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
     <TextView
-        android:layout_centerInParent="true"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:id="@+id/text_content"
-        android:text="ITEM_TYPE_PIC"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/name"
+        android:text="自我介绍"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 </RelativeLayout>

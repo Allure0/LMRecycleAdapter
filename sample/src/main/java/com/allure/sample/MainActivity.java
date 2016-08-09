@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     private List<TestBean> list = new ArrayList<>();
 
-    private String name[] = {"张学友", "刘德华", "李冰冰", "范冰冰", "高圆圆"};
 
     private HeaderAndFooterWrapper mHeaderAndFooterWrapper;
     private HeaderLayout mHeaderLayout;
@@ -91,10 +90,9 @@ public class MainActivity extends AppCompatActivity {
     //add list
     private void addList() {
         List<TestBean> mList=new ArrayList<>();
-        for (int i = 0; i < name.length; i++) {
+        for (int i = 0; i < 3; i++) {
             TestBean testBean = new TestBean();
-            testBean.setName(name[i]);
-            testBean.setDesc("大家好,我是:" + name[i]);
+            testBean.setName("新增Item");
             mList.add(testBean);
         }
         mTestAdapter.setList(mList);
@@ -113,10 +111,9 @@ public class MainActivity extends AppCompatActivity {
 
     private List<TestBean> initData() {
 
-        for (int i = 0; i < name.length; i++) {
+        for (int i = 0; i < 5; i++) {
             TestBean testBean = new TestBean();
-            testBean.setName(name[i]);
-            testBean.setDesc("大家好,我是:" + name[i]);
+            testBean.setName("Item"+String.valueOf(i));
             list.add(testBean);
         }
         return list;

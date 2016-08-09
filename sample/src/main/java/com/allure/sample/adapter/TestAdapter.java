@@ -23,8 +23,8 @@ public class TestAdapter extends BaseCleanRecycleAdapter<TestBean> {
 
     @Override
     protected void convert(final BaseViewHolderHelper helper, TestBean item, final int position) {
-        helper.setText(R.id.name, item.getName())
-                .setText(R.id.desc, item.getDesc());
+        helper.setText(R.id.name, item.getName());
+
         //Onclick
         helper.setOnClickListener(R.id.name, new View.OnClickListener() {
             @Override
