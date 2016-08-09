@@ -10,6 +10,7 @@
 - 支持随时添加（删除）头部，尾部，并支持多个header footer
 - 支持上拉加载更多,可自定义加载更多布局（有的同学可能疑惑怎么不加上下拉刷新，个人认为下拉刷新不是同一级功能.若有需要请联合使用系统提供的SwipeRefreshLayout或者[android-Ultra-Pull-To-Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)）实现下拉刷新,上拉加载
 - 支持多ItemType布局
+- 支持设置EmptyView
 
 ###[APK 下载](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/sample-debug.apk)
 ![](https://raw.githubusercontent.com/Allure0/LMRecycleAdapter/master/demo/adapter_gif.gif)
@@ -18,7 +19,7 @@
 Gradle:  
 ```
 dependencies {
- compile 'com.allure0:LMRecycleViewAdapter:1.0.0'
+ compile 'com.allure0:LMRecycleViewAdapter:1.0.1'
 }
 ```
 ###普通Adapter示例显示：
@@ -75,6 +76,42 @@ dependencies {
         //OnTouch
         helper.setOnTouchListener();*/
 
+```
+
+###EmptyView
+```
+
+ --------XML START--------
+  <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    <com.allure.lmrecycleadapter.loadmore.LMRecycleView
+        android:id="@+id/recycle_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+    <RelativeLayout
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="空View" />
+    </RelativeLayout>
+    </RelativeLayout>
+ --------XML END--------
+ 
+ 
+ --------JAVA CODE ------
+ mRecyclerView.setAdapter(mHeaderAndFooterWrapper);
+ mRecyclerView.setEmptyView(emptyView);
+ --------JAVA CODE ------
+ 
 ```
 
 ###LoadMore加载
